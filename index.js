@@ -9,6 +9,10 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json())
 
+// store recently sent messages in memory so we dont send multiple messages
+// to the same user when slack sends multiple webhooks
+let recentlySentMessages = []
+
 app.post('/', async function (req, res) {
   const payload = req.body
   if (payload.challenge) {
@@ -16,7 +20,8 @@ app.post('/', async function (req, res) {
   }
   console.log('got hook')
   if (payload.event.type === 'member_joined_channel' && 
-      payload.event.channel === process.env.OPS_CHANNEL) {
+      payload.event.channel === process.env.OPS_CHANNEL &&
+      !recentlySentMessages.includes(payload.event.user)) {
     console.log('sending slack msg')
     console.log(process.env.SLACK_BOT_TOKEN)
     request({
@@ -81,6 +86,7 @@ app.post('/', async function (req, res) {
     }, function (err, resp, body) {
       console.log('sent', body)
       if (err) { console.log(err) }
+      recentlySentMessages.push(payload.event.user)
     })
   }
 })

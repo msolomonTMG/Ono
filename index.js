@@ -89,6 +89,7 @@ app.post('/', async function (req, res) {
       recentlySentMessages.push(payload.event.user)
     })
   }
+  res.end()
 })
 
 app.listen(app.get('port'), () => {

@@ -42,7 +42,7 @@ app.post('/', async function (req, res) {
             type: 'section',
             text: {
               type: 'mrkdwn',
-              text: `I'm Ono, the Operations Ninja Owl! I'm here to give you an overview of this channel so that everyone gets the most value from it! This is a place where people get together to share and learn from experiences in the realm of operations, project management, and other similar topics!`
+              text: `I'm Ono, the Operations Ninja Owl! I'm here to give you an overview of this channel so that everyone gets the most value from it! This is a place where people get together to share and learn from experiences in the realm of operations, project management, and other ways we Get Stuff Done!`
             }
           },
           {
@@ -67,7 +67,7 @@ app.post('/', async function (req, res) {
             type: 'section',
             text: {
               type: 'mrkdwn',
-              text: `*Get started!* \n Introduce yourself and add some background about what your interested in getting out of this channel. We'd love to hear from you!`
+              text: `*Get started!* \n Introduce yourself and add some background about what your interested in getting out of this channel. How do you Get Stuff Done? We'd love to hear from you!`
             },
             accessory: {
               type: 'image',

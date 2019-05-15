@@ -35,7 +35,7 @@ app.post('/', async function (req, res) {
             type: 'section',
             text: {
               type: 'mrkdwn',
-              text: ':wave: *Welcome to #gn-operations!*'
+              text: ':wave: *Welcome to #gn-get-stuff-done!*'
             }
           },
           {
